@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container{
+    position: absolute;
+    display: flex;
+    background-color: red;
+    gap: 20px;
+    width: 60%;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.column-left{
+    width: 25%;
+    height: 100%;
+    background-color: blue;
+}
+
+.column-right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 75%;
+    height: 100%;
+    background-color: green;
+}
+
+.top, .bottom{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 50%;
+    background-color: orange;
+}
+
+.card{
+    position: relative;
+    flex: 1;
+    background-color: yellow;
+    border-radius: 25px;
+}
+
+.card .img{
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    background-color: aqua;
+    width: 100%;
+    height: 25%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card .img img{
+    padding-right: 10px;
+}
+
+.card .description-container{
+    position: absolute;
+    bottom: 0;
+    background-color: sienna;
+    width: 100%;
+    height: 85%;
+    border-radius: 25px;
+}
+
+.card .description-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.card .description-hours{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px; 
+    gap: 10px;
+}
+
+.column-left{
+    position: relative;
+}
+
+.column-left .perso{
+    position: absolute;
+    background-color: aqua;
+    width: 100%;
+    height: 70%;
+    border-radius: 25px;
+    z-index: 2;
+}
+
+.column-left .period-container{
+    position: absolute;
+    display: flex;
+    background-color: olive;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    align-items: center;
+}
+
+.column-left .period{
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    flex-direction: column;
+    padding-left: 20px;
+    gap: 10px;
+}
+
+.description-hours .hours{
+    font-size: 40px;
+}
+
+.description-hours .previous-hours{
+    font-size: 15px;
+}
+
+@media screen and (max-width:975px) {
+    .container{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:775px) {
+    .container{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .container{
+        flex-direction: column;
+        height: 2500px;
+    }
+
+    .column-right{
+        flex-direction: column;
+    }
+
+    .top, .bottom{
+        flex-direction: column;
+    }
+
+    .column-left, .column-right{
+        width: 100%;
+    }
+
+    .card .description-hours{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 0;
+    }
+
+    .column-left .perso{
+        position: relative;
+    }
+
+    .column-left .period{
+        position: relative;
+    }
+}
