@@ -1,12 +1,20 @@
 let cardDivTop = document.querySelector(".top");
 let cardDivBottom = document.querySelector(".bottom");
+let lstPeriod = document.querySelectorAll(".p");
+let periodActually = "weekly";
 
-datas.forEach(data => {
-    console.log(data);
-});
-
+function PeriodSelected(index){
+    if(periodActually == "daily"){
+        return datas[index].timeframes.daily;
+    }else if(periodActually == "weekly"){
+        return datas[index].timeframes.weekly;
+    }else if(periodActually == "monthly"){
+        return datas[index].timeframes.monthly;
+    }
+}
 
 function addDivTop(){
+    cardDivTop.innerHTML = ""
     for (let index = 0; index < 3; index++) {
         cardDivTop.innerHTML += 
         `
@@ -25,10 +33,10 @@ function addDivTop(){
             </div>
             <div class="description-hours">
                 <span class="hours">
-                    ${datas[index].timeframes.weekly.current}hrs
+                    ${PeriodSelected(index).current}hrs
                 </span>
                 <span class="previous-hours">
-                    Last week - ${datas[index].timeframes.weekly.previous}hrs
+                    Last ${periodActually} - ${PeriodSelected(index).previous}hrs
                 </span>
             </div>
         </div>
@@ -38,6 +46,7 @@ function addDivTop(){
 }
 
 function addDivBottom(){
+    cardDivBottom.innerHTML = ""
     for (let index = 3; index < 6; index++) {
         cardDivBottom.innerHTML += 
         `
@@ -56,10 +65,10 @@ function addDivBottom(){
             </div>
             <div class="description-hours">
                 <span class="hours">
-                    ${datas[index].timeframes.weekly.current}hrs
+                    ${PeriodSelected(index).current}hrs
                 </span>
                 <span class="previous-hours">
-                    Last week - ${datas[index].timeframes.weekly.previous}hrs
+                    Last ${periodActually} - ${PeriodSelected(index).previous}hrs
                 </span>
             </div>
         </div>
@@ -70,3 +79,15 @@ function addDivBottom(){
 
 addDivTop();
 addDivBottom();
+
+lstPeriod.forEach(period => {
+    period.addEventListener("click", () => {
+        for (let index = 0; index < lstPeriod.length; index++) {
+            lstPeriod[index].classList.remove("period-active")
+        }
+        periodActually = period.id;
+        period.classList.toggle("period-active");
+        addDivTop();
+        addDivBottom();
+    })
+});

@@ -175,6 +175,10 @@ body{
     cursor: pointer;
 }
 
+.column-left .period .period-active{
+    color: white;
+}
+
 .column-left .period span:hover{
     color: white;
 }
