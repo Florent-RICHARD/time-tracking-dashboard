@@ -5,27 +5,32 @@
 }
 
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    background-color: hsl(223, 45%, 9%);
+    color: white;
 }
 
 .container{
-    position: absolute;
+    position: relative;
     display: flex;
-    background-color: red;
+    /*background-color: red;*/
     gap: 20px;
     width: 60%;
     height: 400px;
-    top: 50%;
+    /*top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 }
 
 .column-left{
     width: 25%;
     height: 100%;
-    background-color: blue;
+    /*background-color: blue;*/
 }
 
 .column-right{
@@ -34,7 +39,7 @@ body{
     gap: 20px;
     width: 75%;
     height: 100%;
-    background-color: green;
+    /*background-color: green;*/
 }
 
 .top, .bottom{
@@ -42,13 +47,13 @@ body{
     gap: 20px;
     width: 100%;
     height: 50%;
-    background-color: orange;
+    /*background-color: orange;*/
 }
 
 .card{
     position: relative;
     flex: 1;
-    background-color: yellow;
+    /*background-color: yellow;*/
     border-radius: 25px;
 }
 
@@ -56,7 +61,6 @@ body{
     position: absolute;
     display: flex;
     justify-content: end;
-    background-color: aqua;
     width: 100%;
     height: 25%;
     border-top-left-radius: 25px;
@@ -69,10 +73,29 @@ body{
     padding-right: 10px;
 }
 
+#img-work{
+    background-color: hsl(15, 100%, 70%);
+}
+#img-play{
+    background-color: hsl(195, 74%, 62%);
+}
+#img-study{
+    background-color: hsl(348, 100%, 68%);
+}
+#img-exercise{
+    background-color: hsl(145, 58%, 55%);
+}
+#img-social{
+    background-color: hsl(264, 64%, 52%);
+}
+#img-self-care{
+    background-color: hsl(43, 84%, 65%);
+}
+
 .card .description-container{
     position: absolute;
     bottom: 0;
-    background-color: sienna;
+    background-color: hsl(236, 44%, 20%);
     width: 100%;
     height: 85%;
     border-radius: 25px;
@@ -83,6 +106,7 @@ body{
     justify-content: space-between;
     padding: 20px;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .card .description-hours{
@@ -98,17 +122,37 @@ body{
 
 .column-left .perso{
     position: absolute;
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(246, 79%, 59%);
     width: 100%;
     height: 70%;
     border-radius: 25px;
     z-index: 2;
 }
 
+.column-left .perso .perso-img{
+    padding: 20px;
+}
+
+.column-left .perso .desc{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.column-left .perso .desc .title{
+    font-size: 12px;
+}
+
+.column-left .perso .desc .name{
+    font-size: 40px;
+}
+
 .column-left .period-container{
     position: absolute;
     display: flex;
-    background-color: olive;
+    background-color: hsl(236, 44%, 20%);
+
     width: 100%;
     height: 40%;
     bottom: 0;
@@ -118,6 +162,7 @@ body{
 }
 
 .column-left .period{
+    color: hsl(236, 22%, 46%);
     display: flex;
     position: absolute;
     bottom: 30px;
@@ -126,21 +171,41 @@ body{
     gap: 10px;
 }
 
+.column-left .period span{
+    cursor: pointer;
+}
+
+.column-left .period span:hover{
+    color: white;
+}
+
 .description-hours .hours{
     font-size: 40px;
 }
 
 .description-hours .previous-hours{
-    font-size: 15px;
+    color: hsl(236, 22%, 46%);
+    font-size: 12px;
+}
+
+@media screen and (max-width:1150px) {
+    .container{
+        width: 70%;
+    }
 }
 
 @media screen and (max-width:975px) {
     .container{
-        width: 80%;
+        width: 85%;
+    }
+}
+@media screen and (max-width:975px) {
+    .container{
+        width: 85%;
     }
 }
 
-@media screen and (max-width:775px) {
+@media screen and (max-width:800px) {
     .container{
         width: 90%;
     }
@@ -149,7 +214,7 @@ body{
 @media screen and (max-width:650px) {
     .container{
         flex-direction: column;
-        height: 2500px;
+        height: 1200px;
     }
 
     .column-right{
@@ -164,6 +229,10 @@ body{
         width: 100%;
     }
 
+    .column-left{
+        height: 25%;
+    }
+
     .card .description-hours{
         flex-direction: row;
         align-items: center;
@@ -173,9 +242,18 @@ body{
 
     .column-left .perso{
         position: relative;
+        flex-direction: row;
     }
 
     .column-left .period{
         position: relative;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        bottom: 0;
+    }
+
+    .column-left .perso .desc{
+        padding-top: 20px;
     }
 }
