@@ -18,7 +18,7 @@ function addDivTop(){
     for (let index = 0; index < 3; index++) {
         cardDivTop.innerHTML += 
         `
-        <div class="card" id="work">
+        <div class="card" id="${datas[index].title}">
         <div class="img" id="${datas[index].id}">
             <img src="${datas[index].img}" alt="">
         </div>
@@ -50,7 +50,7 @@ function addDivBottom(){
     for (let index = 3; index < 6; index++) {
         cardDivBottom.innerHTML += 
         `
-        <div class="card" id="work">
+        <div class="card" id="${datas[index].title}">
         <div class="img" id="${datas[index].id}">
             <img src="${datas[index].img}" alt="">
         </div>
